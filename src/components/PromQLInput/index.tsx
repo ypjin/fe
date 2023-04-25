@@ -67,8 +67,10 @@ const ExpressionInput = (
   const viewRef = useRef<EditorView | null>(null);
   const executeQueryCallback = useRef(executeQuery);
   const realValue = useRef<string | undefined>(value || '');
+  console.log('n9e api request from PromQLInput: ' + `${localStorage.getItem('userName') || ''}`);
   const defaultHeaders = {
     Authorization: `Bearer ${localStorage.getItem('access_token') || ''}`,
+    'X-User-Name': `${localStorage.getItem('userName') || ''}`,
   };
 
   useEffect(() => {

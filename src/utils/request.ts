@@ -53,7 +53,10 @@ request.interceptors.request.use((url, options) => {
   let headers = {
     ...options.headers,
   };
+
+  console.log('n9e api request from request.ts: ' + `${localStorage.getItem('userName') || ''}`);
   headers['Authorization'] = `Bearer ${localStorage.getItem('access_token') || ''}`;
+  headers['X-User-Name'] = `${localStorage.getItem('userName') || ''}`;
   headers['X-Language'] = localStorage.getItem('language') === 'en_US' ? 'en' : 'zh';
   return {
     url,

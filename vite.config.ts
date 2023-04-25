@@ -18,6 +18,7 @@ import { defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import svgr from 'vite-plugin-svgr';
 import { md } from './plugins/md';
+import { resolve } from 'path'
 
 const chunk2 = [
   '@codemirror/autocomplete',
@@ -75,6 +76,10 @@ export default defineConfig({
     chunkSizeWarningLimit: 650,
     sourcemap: true,
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        embeded: resolve(__dirname, 'embed.html'),
+      },
       output: {
         manualChunks: {
           vendor: chunk1,

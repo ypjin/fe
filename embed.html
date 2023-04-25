@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    window.onload = function() {
+      window.addEventListener('message', event => {
+        const data = event.data;
+        if(data.userName) {
+          localStorage.setItem('userName', data.userName);
+          console.log("got userName in app.tsx: " + JSON.stringify(data));
+        }
+      });
+
+      const msg = {
+        state: "readyForAcceptUser",
+      };
+
+      window.parent.postMessage(msg, "*");
+      console.log("N9e posted message to the parent window");
+    }
+  
+  </script>
+
+</body>
+</html>
+
