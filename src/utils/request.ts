@@ -54,9 +54,9 @@ request.interceptors.request.use((url, options) => {
     ...options.headers,
   };
 
-  console.log('n9e api request from request.ts: ' + `${localStorage.getItem('userName') || ''}`);
+  console.log('n9e api request from request.ts: ' + `${localStorage.getItem('cmdbUserName') || ''}`);
   headers['Authorization'] = `Bearer ${localStorage.getItem('access_token') || ''}`;
-  headers['X-User-Name'] = `${localStorage.getItem('userName') || ''}`;
+  headers['X-User-Name'] = `${localStorage.getItem('cmdbUserName') || ''}`;
   headers['X-Language'] = localStorage.getItem('language') === 'en_US' ? 'en' : 'zh';
   return {
     url,

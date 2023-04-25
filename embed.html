@@ -11,7 +11,7 @@
       window.addEventListener('message', event => {
         const data = event.data;
         if(data.userName) {
-          localStorage.setItem('userName', data.userName);
+          localStorage.setItem('cmdbUserName', data.userName);
           console.log("got userName in app.tsx: " + JSON.stringify(data));
         }
       });
